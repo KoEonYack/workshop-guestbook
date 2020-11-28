@@ -2,6 +2,8 @@ language: ruby
 rvm:
 - 2.3.1
 sudo: false
+before_install: 
+  - gem install bundler --pre
 before_script:
   - pip install --user yamllint
   - pip install --user yamale
@@ -10,7 +12,6 @@ script:
   - gem install bundler:2.1.2
   - yamllint _guestbook/*
   - ruby -Itest tests/tests.rb
-  - bundle exec jekyll build
 notifications:
     webhooks: https://www.travisbuddy.com/
     on_success: never
